@@ -1,7 +1,7 @@
 # WAS와 Web Server, Web Container
 
 
-<img src="https://user-images.githubusercontent.com/70243735/112985634-6081a680-919b-11eb-849b-999b1fdece92.jpg" width="550px">
+<img src="https://user-images.githubusercontent.com/70243735/113125026-21ae2800-9251-11eb-9c98-bb56279067aa.PNG" width="550px">
 
 ## Web Server?
 
@@ -41,13 +41,6 @@ ex) 톰캣, 웹로직, Resin 등이 있다.
 * 아파치와 톰캣을 같이 쓰면?!  
 &nbsp; **아파치는 정적인 데이터만 처리하고 JSP처리는 WebContainer(톰캣의 일부)로 보내주어 분산처리** 할 수 있다.
 
-<br>
-
-## +) 서블릿과 JSP
-<img src="https://user-images.githubusercontent.com/70243735/112985491-37611600-919b-11eb-8fee-991e3663d8d2.jpg" width="550px">
-
-서블릿을 수정하는 것이 어려우니, JSP (자바코드를 넣은 HTML코드)로 수정한다.   
-JSP는 컨테이너에 의하여 서블릿 클래스로 변환하여 사용된다.
 
 <br>
 
