@@ -12,5 +12,5 @@
     + [WAS와 Web Server, Web Container](./Spring/기본개념/WAS.md)
     + [Servlet](./Spring/기본개념/Servlet.md)
     + [Container](./Spring/기본개념/Container.md)
-    + IoC vs DI
+    + [IoC vs DI](./Spring/기본개념/IoC-vs-DI.md)
     + 의존성 주입(DI) 방법 
