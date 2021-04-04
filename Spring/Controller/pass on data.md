@@ -67,11 +67,11 @@ public String toMainPage(){
 
 	ModelAndView mav = new ModelAndView();
  	
-    mav.addObject("recentList", productService.getRecentList());
+	mav.addObject("recentList", productService.getRecentList());
  	mav.addObject("saleList", productService.getSaleList());
 	mav.addOjbect("popularList", productService.getPopularList());
 	
-    mav.setView("/mainPage");
+	mav.setView("/mainPage");
     
 	return mav;
 }
