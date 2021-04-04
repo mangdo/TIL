@@ -9,6 +9,7 @@
 * Controller
     + [HttpServletRequest](./Spring/Controller/HttpServletRequest.md)
     + [Controller에서 데이터를 받는 방법](./Spring/Controller/get%20data.md)
+    + [Controller에서 데이터를 전달하는 방법](./Spring/Controller/pass%20on%20data)
 * 기본 개념
     + [WAS와 Web Server, Web Container](./Spring/기본개념/WAS.md)
     + [Servlet](./Spring/기본개념/Servlet.md)
