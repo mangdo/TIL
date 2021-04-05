@@ -69,7 +69,7 @@ public void getInfo(String id, UserVO user){
 <br>
 
 ## **@RequestBody**
-> 파라미터를 객체로 받기 ( **MessageConver**를 사용하여 javaObject로 변환 )
+> 파라미터를 객체로 받기 ( **MessageConverter**를 사용하여 javaObject로 변환 )
 
 ```java
 @PosMapping("/getInfo");
