@@ -56,14 +56,14 @@
 &nbsp; 사람들이 웹을 통해 정보자원에 접근하여 이용할 수 있는 것은 다음과 같은 메커니즘을 갖고 있기 때문인데 이것을 **웹의 3대 요소**라고 부른다.
 
 * HTTP (**H**yperText **T**ransfer **P**rotocol)   
-    : 정보를 주고 받을 수 있는 프로토콜(통신규약)
+    : 웹 클라이언트와 웹 서버가 정보를 주고 받을 때 사용하는 통신 규약
     : HTTP를 통해 전달되는 자료는 http:로 시작하는 URL로 조회할 수 있다
 
 * URL (**U**niform **R**esource **L**ocator)   
     : 네트워크상 정보 자원의 위치를 표시하기 위한 표기법
 
-* HTML(**H**yperText **M**arkup **L**anguage)   
-    : 웹 브라우저 상 보여지도록 디자인된 문서를 위한 마크업 언어   
+* HTML(**H**yper**T**ext **M**arkup **L**anguage)   
+    : 웹페이지를 위한 마크업 언어   
     : 링크를 통해 자원들 사이를 쉽게 항해 할 수 있는 언어
 
 <br>
@@ -86,27 +86,28 @@ Telnet|Telnet|	23|	원격 터미널 접속
 
 # **[ WEB의 동작 방식 ]**
 > web client(web brower)가 정보를 요청하고 web server는 정보를 응답한다.
-<img src ="https://user-images.githubusercontent.com/70243735/114557347-8bdcb900-9ca4-11eb-90c1-318f9f862449.png" width="450px">
+
+<img src ="https://user-images.githubusercontent.com/70243735/114715490-13dac580-9d6e-11eb-8ee9-6a34d08ca415.png" width="450px">
 
 1. 두대의 컴퓨터는 모두 인터넷으로 연결되어 있다.
 
 2. 하나의 컴퓨터에는 web brower를, 다른 하나의 컴퓨터에는 web server라는 프로그램을 설치한다.
 
-3. 웹서버가 깔려있는 컴퓨터는 /info.cern.ch/라는 주소를 가지고 있다.
+3. 웹서버가 깔려있는 컴퓨터는 198.168.0.13라는 IP주소를 가지고 있다.
 
     웹서버가 설치되어있는 컴퓨터의 하드디스크에
-    어느디렉토리안에 index.html이 저장되어있다.
+    어느 디렉토리안에 index.html이 저장되어있다.
 
-4. 웹브라우저에서 주소창에 http://info.cern.ch/index.html을 입력한다.
+4. 웹 브라우저에서 주소창에 http://198.168.0.13/index.html 을 입력한다.
 
-    웹 브라우저는 인터넷을 통해 /info.cern.ch/에 해당하는 컴퓨터에 "index.html을 원한다"는 요청을 보낸다.
+    웹 브라우저는 인터넷을 통해 198.168.0.13에 해당하는 컴퓨터에 "index.html을 원한다"는 요청을 보낸다.
 
-5. info.cern.ch에 해당하는 컴퓨터에 설치된 web server라는 프로그램이 하드디스크에서 index.html을 찾아 응답한다.
+5. 198.168.0.13에 해당하는 컴퓨터에 설치된 web server라는 프로그램이 하드디스크에서 index.html을 찾아 응답한다.
 
 6. 웹 브라우저는 index.html 파일의 내용(코드)를 읽어서 화면에 표시한다.
 
 
-이렇게 WEB Brower가 설치되어있는 컴퓨터와 WEB Server가 설치되어있는 컴퓨터가 서로 정보를 주고 받는다.
+이렇게 web Brower가 설치되어있는 컴퓨터와 web Server가 설치되어있는 컴퓨터가 서로 정보를 주고 받는다. 이때 웹 브라우저가 웹서버에 요청하기 위해서는 웹서버의 IP주소(Internet Protocol address)가 필요하다.
 
  
 

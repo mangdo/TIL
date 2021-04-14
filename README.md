@@ -26,3 +26,4 @@
 
 ## Web
 + [Internet vs Web](./WEB/web.md)
++ [Web Hosting vs Server Hosting vs Cloud](./WEB/cloud.md)
