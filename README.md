@@ -23,7 +23,8 @@
     + [Spring의 Singleton](./Spring/기본개념/Singleton.md)
 * [Spring Security](./Spring/SpringSecurity.md)
 
-
+* 배포
+    + [jar vs war](./Spring/배포/warjar.md)
 ## Web
 + [Internet vs Web](./WEB/web.md)
 + [Web Hosting vs Server Hosting vs Cloud](./WEB/cloud.md)
