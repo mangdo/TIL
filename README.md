@@ -26,10 +26,15 @@
 * 배포
     + [jar vs war](./Spring/배포/warjar.md)
 
+<br>
+
 ## Web
 + [Internet vs Web](./WEB/web.md)
 + [Web Hosting vs Server Hosting vs Cloud](./WEB/cloud.md)
 + [Private IP, NAT](./WEB/NAT.md)
 
-# Algorithm
+<br>
+
+## Algorithm
 + [DFS](./Algorithm/DFS.md)
++ [BFS](./Algorithm/BFS.md)
