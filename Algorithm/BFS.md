@@ -107,6 +107,8 @@ bfs(graph, 1, visited)
 &nbsp; BFS는 가까운 거리순으로 탐색하기 때문에 최단 거리 문제에도 사용될 수 있다. **방문한 노드의 값을 거리 정보로 변경**한다.
 그러면 한번도 방문하지 않은 곳을 1, 가지 못할 곳은 0, 이미 간 곳은 1보다 큰 값이된다.
 
+<img src="https://user-images.githubusercontent.com/70243735/119265663-730bdf80-bc22-11eb-9db4-70d486e13966.png">
+
 ### [코드]
 
 &nbsp; 구현시, visited 리스트가 따로 필요하지 않다.
