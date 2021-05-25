@@ -38,3 +38,5 @@
 ## Algorithm
 + [DFS](./Algorithm/DFS.md)
 + [BFS](./Algorithm/BFS.md)
++ [정렬](./Algorithm/sorting.md)
++ [이진탐색](./Algorithm/binarySearch.md)
