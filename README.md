@@ -40,4 +40,5 @@
 + [BFS](./Algorithm/BFS.md)
 + [정렬](./Algorithm/sorting.md)
 + [이진탐색](./Algorithm/binarySearch.md)
-+ [다이나믹 프로그래밍](./Algorithm/dynamicProgramming)
++ [다이나믹 프로그래밍](./Algorithm/dynamicProgramming.md)
++ [다익스트라 최단경로](./Algorithm/dijkstra.md)
