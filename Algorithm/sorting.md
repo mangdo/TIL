@@ -2,11 +2,11 @@
 
 &nbsp; 정렬이란, 데이터를 특정한 기준에 따라서 순서대로 나열하는 것을 말한다. 다양한 정렬 알고리즘 중 주로 사용하는 것 들에는 선택 정렬, 삽입 정렬, 퀵 정렬, 계수 정렬이 있다. 정렬 수행시에는 상황에 맞는 알고리즘을 선택해야 효율적으로 작동할 수 있다.
 
--|선택 정렬   |삽입 정렬|퀵 정렬|계수 정렬
--|-|-|-|-|
-시간 복잡도	|O(N^2) |O(N^2) |O(NlogN)   |	O(N+K)
-공간 복잡도	|O(N)	|O(N)	|O(N)	    |O(N+K)
-추천 상황   |	작은 범위, 간단	|거의 정렬되어 있는 경우|일반적인 경우|데이터 크기 범위가 작은 경우
+-|선택 정렬   |삽입 정렬|퀵 정렬|병합정렬|계수 정렬|
+-|-|-|-|-|-|
+시간 복잡도	|O(N^2) |O(N^2) |O(NlogN)|O(NlogN)   |	O(N+K)
+공간 복잡도	|O(N)	|O(N)	|O(N)|O(N)	    |O(N+K)
+추천 상황   |	작은 범위, 간단	|거의 정렬되어 있는 경우|일반적인 경우|-|데이터 크기 범위가 작은 경우
 
 (N : 데이터의 갯수, K : 데이터 최대값의 크기)
 
@@ -140,10 +140,70 @@ print(array)
 
 <br>
 
+
+## 💡 병합 정렬(Merge Sort)
+> 정렬되어있는 두 집합을 합쳐가며 정렬하는 알고리즘
+
+&nbsp; 퀵 정렬과 마찬가지로 시간복잡도가 **O(NlogN)이고 분할-정복 방식**이다. 하지만 퀵정렬의 최악의 시간복잡도가 O(N^2)가 였던 것에 반해, 병합 정렬은 **최악의 시간복잡도도 O(NlogN)**이다. 그럼에도 불구하고 실제 구현을 해보면 거의 모든 경우에 퀵정렬이 우세하다고 나온다. 왜냐하면 합병정렬의 경우에는 배열을 생성하는 시간이 있기때문이다. 이는 정렬하려는 배열의 길이가 길수록 더 차이가 난다.
+
+
+**[ 동작 과정 ]**
+
+1. 중간을 기준으로 오른쪽과 왼쪽, 2개의 배열로 분할시켜 나갑니다.   
+  : 부분 배열의 길이가 1이 될때까지 재귀호출을 반복시킵니다. 만약 길이가 1이라면 해당 배열을 정렬되어있다라고 생각할 수 있습니다.
+
+2. 정렬되어있는 두 배열을 합치며 완성된 배열을 만들어냅니다.
+
+
+- 분할
+
+  <img src="https://user-images.githubusercontent.com/70243735/121863791-2b670800-cd37-11eb-9e7d-c4e5d7c8b43d.png" width="500px">
+
+- 정복
+
+  <img src="https://user-images.githubusercontent.com/70243735/121863865-3fab0500-cd37-11eb-92a3-376cce0251a7.png" width="500px">
+
+
+**[ 코드 ]**
+
+```python
+give_array = [5, 3, 2, 1, 6, 8, 7, 4]
+
+def merge_sort(array):
+    if len(array) <= 1:
+        return array
+    mid = len(array)//2
+    left_array = merge_sort(array[:mid])
+    right_array = merge_sort(array[mid:])
+    return merge(left_array, right_array)
+
+def merge(array1, array2):
+    result = []
+    array1_index = 0
+    array2_index = 0
+    # 정렬되어 있는 두 리스트를 합치기
+    while array1_index < len(array1) and array2_index < len(array2):
+        if array1[array1_index] < array2[array2_index]:
+            result.append(array1[array1_index])
+            array1_index += 1
+        else:
+            result.append(array2[array2_index])
+            array2_index += 1
+
+    result = result+array1[array1_index:] + array2[array2_index:]
+    return result
+
+print(merge_sort(give_array))
+```
+
+
+<br>
+
+
 ## 💡 계수 정렬
 > 데이터의 크기 범위가 작을때, 사용할 수 있는 매우 빠른 정렬 알고리즘이다.
 
-&nbsp; 일반적으로 데이터 크기 범위가 1,000,000(백만)을 넘지 않을때만 사용할 수 있다. 계수 정렬은 앞서 다루었던 선택/삽입/퀵 정렬은 직접 데이터의 값을 비교한뒤에 위치를 변경하며 정렬하는 방식과는 다르다. 
+&nbsp; 일반적으로 **데이터 크기 범위가 1,000,000(백만)을 넘지 않을때만 사용**할 수 있다. 계수 정렬은 앞서 다루었던 선택/삽입/퀵 정렬은 직접 데이터의 값을 비교한뒤에 위치를 변경하며 정렬하는 방식과는 다르다. 
 
 **[ 동작 방식 ]**
 
@@ -186,6 +246,7 @@ for i in range(len(count)):
 &nbsp; 데이터의 갯수를 M, 데이터의 최대값 크기를 K라고 할때, 계수 정렬의 시간복잡도는 O(N+K)로 이제까지 살펴본 정렬 알고리즘 중 가장 빠르다. 하지만 데이터의 최대값 크기만큼의 메모리가 필요하기 때문에 심각한 비효율성을 초래할 수 있다. 예를 들어 10,000,000와 1로 단 2개의 데이터를 가지고 있을때도 10,000,001크기의 리스트를 선언해야한다. 때문에 계수 정렬은 데이터의 크기 범위가 작을때만 사용하는 것이 좋다. 
 
 <br> 
+
 
 ## 💡 파이썬 정렬 라이브러리
 
