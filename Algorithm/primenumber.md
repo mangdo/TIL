@@ -23,8 +23,9 @@ def is_prime_number(x):
         # x가 해당 수로 나누어 떨어지다면 소수가 아님
         if x % i == 0:
             return False
-        return True
+    return True
 print(is_prime_number(7))
+print(is_prime_number(12))
 ```
 
 <br>
@@ -55,6 +56,7 @@ print(is_prime_number(7))
 
 ```python
 import math
+
 n = 100
 numbers = [True for i in range(n+1)]
 

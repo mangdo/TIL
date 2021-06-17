@@ -44,4 +44,6 @@
 + [다익스트라 최단경로](./Algorithm/dijkstra.md)
 + [플로이드 워셜](./Algorithm/floydWarshall.md)
 + [Disjoint Sets(서로소 집합)](./Algorithm/disjointSets.md)
-+ [소수 찾기](./Algorithm/primenumber.md)
++ 기타 알고리즘
+    - [소수 찾기](./Algorithm/primenumber.md)
+    - [최대공약수, 최소공배수](./Algorithm/gcdlcm.md)
