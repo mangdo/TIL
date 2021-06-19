@@ -30,6 +30,7 @@ BFS|	가까운 노드부터 탐색|	큐|	큐 자료구조 이용|	한번에 다 
 <br>
 
 ## 💡 BFS 구현 코드
+visited라는 리스트에 방문 여부를 저장했고 Queue를 사용한다.
 
 ```python
 from collections import deque
@@ -46,7 +47,7 @@ def bfs(graph, start, visited):
   while queue:
     # 큐에서 하나의 원소를 꺼내서 출력
     n = queue.popleft()
-    print(n, end='')
+    print(n, end=' ')
 
     # 꺼낸 원소와 인접노드 확인
     for i in graph[n]:
@@ -71,8 +72,53 @@ graph=[
 # 방문 정보
 visited = [False]*(8+1) #(총 노드의 갯수)+인덱스 0
 # bfs호출
-bfs(graph, 1, visited)
+bfs(graph, 1, visited) # 1 2 3 8 7 4 5 6 출력
 ```
+
+<br>
+
+## 💡 BFS 구현 코드 2
+동일하게  Queue를 사용하지만 visited라는 리스트에 **방문 순서대로 노드를 저장**하고 not in, in을 이용한다.
+
+```python
+from collections import deque
+
+def bfs(graph, start):
+    queue = deque([start])
+    visited = []
+
+    # 큐가 빌 때까지
+    while queue:
+        cur_node = queue.popleft()
+        visited.append(cur_node)
+
+        # 꺼낸 원소와 인접노드 확인
+        for link_node in graph[cur_node]:
+            # 아직 방문하지 않은 노드라면 큐에 담아줌
+            if link_node not in visited and link_node not in queue:
+                queue.append(link_node)
+    return visited
+
+# 2차원 맵정보 입력받기
+graph=[
+  [], # 0번 노드 비우기
+  [2,3,8], #1번 노드와 연결된 2,3,8노드
+  [1,7],
+  [1,4,5],
+  [3,5],
+  [3,4],
+  [7],
+  [2,6,8],
+  [1,7]
+]
+
+# bfs 수행
+visited_bfs = bfs(graph, 1)
+for i in visited_bfs:
+    print(i, end=" ") # 1 2 3 8 7 4 5 6 출력
+
+```
+<br>
 
 ## 💡 BFS 알고리즘 문제
 

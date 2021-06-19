@@ -24,19 +24,19 @@ DFS에서 인접한 노드가 여러개 일 수 있다. 그래서 스택에 어�
 
 ## 💡 DFS 구현 코드
 DFS는 스택 자료구조에 기초한다는 점에서 구현이 간단하다.   
-실제 구현은 스택을 직접 사용하지 않고 **재귀함수**를 이용할 수 있다.
+실제 구현은 스택을 직접 사용하지 않고 **재귀함수**를 이용할 수도 있다. visited라는 리스트에 방문 여부를 저장한다.
+
 ```python
-def dfs(graph, n, visited):
-  # 현재 노드를 방문처리
-  visited[n] = True
-  print(n, end='')
-  
-  # 현재 노드와 인접한 노드를 확인
-  for i in graph[n]:
-    # 방문하지 않은 노드라면
-    if not visited[n]:
-      # 재귀호출
-      dfs(graph, i, visited)
+def dfs(graph, cur_node, visited):
+    # 현재 노드를 방문처리
+    visited[cur_node] = True
+    print(cur_node, end='')
+
+    # 현재 노드와 인접한 노드를 확인
+    for i in graph[cur_node]:
+        # 방문하지 않은 노드라면 재귀호출
+        if not visited[i]:
+            dfs(graph, i, visited)
 
 ######## dfs 사용
 # 각 노드에 연결된 정보를 2차원 리스트로 표현
@@ -55,7 +55,46 @@ graph =[
 # 각 노드가 방문된 정보
 visited = [False]*(8+1) # 전체 노드갯수 8개+인덱스0
 # dfs 호출
+dfs(graph, 1, visited) # 1 2 7 6 8 3 4 5 출력
+```
+<br>
+
+
+## 💡 DFS 구현 코드 2
+
+이전 코드에서는 visited라는 리스트에 방문 여부만을 저장하고 이용했다면,   
+이번 코드에서는 visited라는 리스트에 **방문 순서대로 노드를 저장**하고 not in, in을 이용한다. 물론 이전 코드와 동일하게 **재귀함수를 이용**했다.   
+
+```python
+def dfs(graph, cur_node, visited):
+    # 현재 노드를 방문처리
+    visited.append(cur_node)
+    graph[cur_node].sort()
+    # 현재 노드와 인접한 노드를 확인
+    for link_node in graph[cur_node]:
+        # 방문하지 않은 노드라면 재귀호출
+        if link_node not in visited:
+            dfs(graph, link_node, visited)
+
+######## dfs 사용
+# 각 노드에 연결된 정보를 2차원 리스트로 표현
+graph = [
+    [],  # 노드번호가 1부터 시작하기 때문에 인덱스 0은 비워둔다
+    [2, 3, 8],  # 1번 노드와 인접한 노드 2,3,8
+    [1, 7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]
+
+visited = []
+# dfs 호출
 dfs(graph, 1, visited)
+for i in visited:
+    print(i, end=" ") # 1 2 7 6 8 3 4 5 출력
 ```
 <br>
 
