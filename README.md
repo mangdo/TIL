@@ -35,7 +35,7 @@
 
 <br>
 
-## Algorithm
+## 알고리즘
 + [DFS](./Algorithm/DFS.md)
 + [BFS](./Algorithm/BFS.md)
 + [정렬](./Algorithm/sorting.md)
@@ -47,3 +47,8 @@
 + 기타 알고리즘
     - [소수 찾기](./Algorithm/primenumber.md)
     - [최대공약수, 최소공배수](./Algorithm/gcdlcm.md)
+
+<br>
+
+## 자료구조
++ [배열](./DataStructure/array.md)
