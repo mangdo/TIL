@@ -12,15 +12,15 @@
 
 
 JVM은 자바의 "*Write Once, Run Anywhere*" 을 가능하게 한다.   
-자바가 나오기 전, C언어는 운영체제에 맞게 프로그램을 수정해야 했다.
-하지만 자바의 경우 JVM이 자바와 운영체제 사이에 위치하여 중개자 역할을 하면서 프로그램을 수정하지 않고도 여러 운영체제에서 사용 가능하다.
+&nbsp; C와 C++의 경우 컴파일 플렛폼과 실행하고자 하는 타겟 플랫폼이 다를 경우 프로그램이 동작하지 않는다. 이때 플랫폼이란, OS와 CPU 아키텍처를 말한다. 즉 타겟 플랫폼에 맞게 프로그램을 수정해야 했다.
+하지만 자바의 경우 JVM이 자바와 운영체제 사이에 위치하여 중개자 역할을 한다. 그 덕분에 프로그램을 수정하지 않고도 여러 운영체제에서 사용 가능하다.
 
 
 2. 프로그램 메모리를 관리하고 최적화한다.
 
 <br>
 
-## 💡 Java의 실행 과정
+## 💡 JVM 동작 과정
 
 
 1. 프로그램이 실행되면 JVM은 **OS로부터** 이 프로그램이 필요로하는 **메모리를 할당**받는다. <br>
@@ -64,7 +64,7 @@ JVM은 자바의 "*Write Once, Run Anywhere*" 을 가능하게 한다.
  : 스레드가 시작될 때 생성되며, 현재 수행 중인 JVM의 명령어 주소를 저장한다.
 
 - Native Method stack <br>
- : Java가 아닌 다른 언어로 작성된 코드(c, c++)를 위한 공간이다.
+ : Java가 아닌 네이티브 언어(ex. c, c++)를 위한 스택
 
 
 ### 3) Excution Engine
@@ -73,14 +73,16 @@ JVM은 자바의 "*Write Once, Run Anywhere*" 을 가능하게 한다.
 1) Interpreter  -> 명령어를 한 줄 한 줄 해석해서 실행한다. <br>
 2) JIT (Just-In-Time) compiler -> 자바 컴파일러가 생성한 자바 바이트 코드를 런타임에 바로 기계어로 변환해주는 컴파일러이다. <br>
 
+: 인터프리터로 한줄 씩 해석하면 미리 컴파일된 코드를 수행하는 것보다 수행속도가 느리다. 때문에 일정 수준 이상 호출되는 메소드가 있다면 JIT컴파일러로 해당 메소드의 바이트 코드를 모두 네이티브 코드로 바꾸고 캐시에 보관한다. 그 다음부터 인터프리터는 네이티브 코드로 컴파일된 코드를 바로 변환한다.
+
 +) 가비지 컬렉터 -> 힙 영역에서 사용되지 않는 객체들을 제거한다.
 
 
 ### 4)  JNI(Java Native Interface)
- : 자바 애플리케이션에서 C, C++, 어셈블리어로 작성된 함수를 사용할 수 있는 방법을 제공해준다.
+ : 자바 애플리케이션에서 네이티브 언어(ex. c, c++)로 작성된 함수를 사용할 수 있는 방법을 제공해준다.
 
 ### 5) Native Method Library
- : C, C++로 작성된 라이브러리 이다.
+ : 네이티브 언어(ex. c, c++)로 작성된 라이브러리 이다.
 
 
 <br>
@@ -93,3 +95,5 @@ JVM은 자바의 "*Write Once, Run Anywhere*" 을 가능하게 한다.
 https://www.scientecheasy.com/2021/03/what-is-jvm.html/   
 https://asfirstalways.tistory.com/158
 https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=rokey_89&logNo=221658053244
+https://kingofbackend.tistory.com/123
+https://hongchangsub.com/java3/

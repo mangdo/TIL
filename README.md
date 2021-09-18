@@ -55,4 +55,4 @@
 + [링크드 리스트](./DataStructure/list.md)
 
 ## JAVA
-+ [JVM과 Java 동작 과정](./Java/JVM.md)
++ [JVM의 구조와 동작 과정](./Java/JVM.md)
