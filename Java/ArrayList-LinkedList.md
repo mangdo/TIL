@@ -49,15 +49,15 @@ for (int i = 0; i < arrList.size(); i++) {
 > LinkedList는 내부적으로 이중 연결 리스트(doubly linked list)를 구현하여 요소를 저장한다. <br>
 
 : 배열(Array)은 요소들이 순차적으로 저장된다. <br>
-&nbsp; 하지만 연결 리스트(LinkedList)는 요소들이 **비순차적**으로 저장되며, 이러한 요소들 사이를 포인터로 연결하여 구성한다.
+&nbsp; 하지만 연결 리스트(LinkedList)는 요소들이 **비순차적**으로 저장되며, 이러한 요소들 사이를 링크(참조 값, 주소)로 연결하여 구성한다.
 
 #### 장점
 - 삽입, 삭제 속도가 빠르다 <br>
-    : 양방향 포인터 구조로 데이터의 삽입, 삭제 시 해당 노드의 주소지만 바꾸면 되기 때문이다.
+    : 데이터의 삽입, 삭제 시 해당 노드의 주소지만 바꾸면 되기 때문이다.
 
 #### 단점
 - 조회 속도가 느리다. <br>
-    : 데이터의 조회 시 처음부터 노드를 순회해야 하기 때문이다.
+    : 데이터의 조회 시 처음(Head)부터 노드를 순회해야 하기 때문이다.
 
 
 #### 사용 방법
@@ -90,7 +90,7 @@ for (int i = 0; i < arrList.size(); i++) {
 <br>
 
 
-출처:
+Reference :
 
 [http://tcpschool.com/java/java_collectionFramework_list](http://tcpschool.com/java/java_collectionFramework_list)   
 [https://devlog-wjdrbs96.tistory.com/64](https://devlog-wjdrbs96.tistory.com/64)
