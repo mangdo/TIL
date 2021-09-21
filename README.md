@@ -2,7 +2,7 @@
     하루동안 공부한 내용을 정리해서 기록합니다.
 ## ETC
 * [markdown](./ETC/markdown.md)
-
+* [OOP(객체 지향 프로그래밍)](./ETC/OOP.md)
 <br>
 
 ## Spring
@@ -54,7 +54,9 @@
 + [배열](./DataStructure/array.md)
 + [링크드 리스트](./DataStructure/list.md)
 
-## JAVA
+<br>
+
+## Java
 + [컴파일언어 vs 인터프리터언어](./Java/CompileVsInterpreter.md)
 + [JVM의 구조와 동작 과정](./Java/JVM.md)
 + [Garbage Collection](./Java/GarbageCollection.md)
