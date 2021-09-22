@@ -61,3 +61,4 @@
 + [JVM의 구조와 동작 과정](./Java/JVM.md)
 + [Garbage Collection](./Java/GarbageCollection.md)
 + [ArrayList vs LinkedList](./Java/ArrayList-LinkedList.md)
++ [== vs equals(): 동일성과 동등성](./Java/==-vs-equals().md)
