@@ -33,6 +33,7 @@
 + [Web Hosting vs Server Hosting vs Cloud](./WEB/cloud.md)
 + [Private IP, NAT](./WEB/NAT.md)
 + [REST API](./WEB/REST.md)
++ [HTTP Method]()
 
 <br>
 
