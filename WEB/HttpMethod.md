@@ -51,3 +51,10 @@
 
 
     <img src="https://user-images.githubusercontent.com/70243735/134891746-534f2b2b-2451-4bd2-8ea8-35a7e8273c16.png" width="500px">
+
+
+<br>
+
+Reference : <br>
+[https://developer.mozilla.org/ko/docs/Web/HTTP/Methods](https://developer.mozilla.org/ko/docs/Web/HTTP/Methods) <br>
+[https://ko.wikipedia.org/wiki/HTTP#메시지_포맷](https://ko.wikipedia.org/wiki/HTTP#%EB%A9%94%EC%8B%9C%EC%A7%80_%ED%8F%AC%EB%A7%B7)
