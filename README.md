@@ -27,6 +27,9 @@
 * 배포
     + [jar vs war](./Spring/배포/warjar.md)
 
+* JPA
+    + [영속성 컨텍스트](./Spring/JPA/Persistence-Context.md)
+
 <br>
 
 ## Web
@@ -34,7 +37,7 @@
 + [Web Hosting vs Server Hosting vs Cloud](./WEB/cloud.md)
 + [Private IP, NAT](./WEB/NAT.md)
 + [REST API](./WEB/REST.md)
-+ [HTTP Method]()
++ [HTTP Method](./WEB/HttpMethod.md)
 
 <br>
 
