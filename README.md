@@ -42,6 +42,7 @@
 + [REST API](./WEB/REST.md)
 + [HTTP Method](./WEB/HttpMethod.md)
 + [HTTP 상태코드](./WEB/Http-StatusCode)
++ [CORS](./WEB/cors.md)
 
 <br>
 
