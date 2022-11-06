@@ -7,6 +7,8 @@
     + [프로세스 vs 스레드](./ETC/process-vs-thread.md)
 * 디자인 패턴
     + [빌더 패턴](./ETC/builderPattern.md)
+* [Pub/Sub](./ETC/pub-sub.md)
+
 <br>
 
 ## Spring
