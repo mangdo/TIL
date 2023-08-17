@@ -8,10 +8,11 @@
 
 <br>
 
-**Level** : 루트 노드부터 현재 노드까지의 깊이
-**Height** : 트리에서 노드가 가질 수 있는 최대 Level
-**Leaf Node (말단 노드)** : 자식이 없는 노드
+- **Level** : 루트 노드부터 현재 노드까지의 깊이
+- **Height** : 트리에서 노드가 가질 수 있는 최대 Level
+- **Leaf Node (말단 노드)** : 자식이 없는 노드
 
+<br>
 <br>
 
 ## 💡 이진 트리
@@ -39,6 +40,7 @@ Level K -> **2^k 개**
 2^{h+1} -1  = N → h = **log_{2}(N+1)-1**
 
 <br>
+<br>
 
 ## 💡 포화 이진 트리 (perfect binary tree)
 > 모든 내부 노드가 두개의 자식 노드를 가지며, 모든 말단 노드(leaf node)는 동일한 레벨을 가지는 트리
@@ -61,7 +63,7 @@ Level K -> **2^k 개**
 ## 💡 완전 이진 트리의 구현
 
 완전 이진 트리의 경우, 클래스로 구현할 수도 있고 배열로도 구현할 수 있다.
-위 그림의 완전 이진 트리는 **[None, A, B, C, D, E]**라는 배열로 표현할 수 있다.
+위 그림의 완전 이진 트리는 [None, A, B, C, D, E]라는 배열로 표현할 수 있다.
 
 배열에서 트리로 접근하려면 다음과 같은 규칙을 가진다.
 
@@ -97,3 +99,113 @@ Level K -> **2^k 개**
         2. 최대/최소 값의 위치
         이진 탐색트리는 최대값이 우 최하단, 최소값은 좌 최하단이지만 힙은 최상단에 최대/최소 값이 위치
 
+
+<br>
+<br>
+
+## 💡 완전 이진 트리 예시
+
+### Q1. 업무 처리
+
+&nbsp; 어떤 부서의 업무 조직은 완전이진트리 모양이다. 즉, 부서장이 루트이고 부서장 포함 각 직원은 왼쪽과 오른쪽의 부하 직원을 가진다. 부하 직원이 없는 직원을 말단 직원이라고 부른다.
+
+&nbsp; 모든 말단 직원은 부서장까지 올라가는 거리가 동일하다. 조직도 트리의 높이는 H이다. 아래는 높이가 1이고 업무가 3개인 조직도를 보여준다.
+
+<img src = "https://github.com/mangdo/TIL/assets/70243735/0816cd6c-0151-4efc-a442-3ed8bffa4109" width = "200px">
+
+&nbsp; 업무는 R일 동안 진행된다. 처음에 말단 직원들만 각각 K개의 순서가 정해진 업무를 가지고 있다. 각 업무는 업무 번호가 있다. 각 날짜에 남은 업무가 있는 경우, 말단 직원은 하나의 업무를 처리해서 상사에게 올린다. 다른 직원들도, 대기하는 업무가 있는 경우 업무를 올라온 순서대로 하나 처리해서 상사에게 올린다. 단, 홀수 번째 날짜에는 왼쪽 부하 직원이 올린 업무를, 짝수 번째 날짜에는 오른쪽 부하 직원이 올린 업무를 처리한다.
+
+&nbsp; 부서장이 처리한 일은 완료된 것이다. 업무를 올리는 것은 모두 동시에 진행한다. 따라서 그날 올린 업무를 상사가 처리하는 것은 그 다음날에야 가능하다.
+
+&nbsp; 부서의 조직과 대기하는 업무들을 입력 받아 처리가 완료된 업무들의 번호의 합을 계산하는 프로그램을 작성하라
+
+
+- 입력 조건
+    - 첫 줄에 조직도의 높이 H, 말단에 대기하는 업무의 개수 K, 업무가 진행되는 날짜 수 R이 주어진다.
+    - 그 다음 줄부터 각각의 말단 직원에 대해 대기하는 업무가 순서대로 주어진다. 제일 왼쪽의 말단 직원부터 순서대로 주어진다.
+
+- 출력 조건
+    - 완료된 업무들의 번호 합을 정수로 출력한다.
+
+
+입력 예시 |출력 예시
+-|-
+1 1 1 <br> 1 <br> 2 | 0
+1 3 2 <br> 9 3 7 <br> 5 11 2 | 5
+
+<br>
+
+**[ 문제 아이디어 ]**
+
+우선 조직도를 완전 이진 트리로 구현해야한다. 부하 직원이 있는 직원들은, 각각 두 개의 큐를 가지고 있다. <br>
+오른쪽 부하직원이 보낸 업무는 오른쪽 큐에 쌓아두고, 짝수번째 날짜에 하나를 꺼내 처리하고, 부모의 큐중 하나에 보낸다.
+
+
+
+
+**[ 코드 ]**
+
+```python
+
+import sys
+from collections import deque
+
+height, works_count, working_day = map(int, sys.stdin.readline().split())
+
+# 부하 직원이 있는 직원
+lead_workers_count = (2**height) - 1 # h-1 만큼의 모든 노드
+lead_workers = [[deque(), deque()] for _ in range(lead_workers_count + 1)]
+lead_workers[0] = None
+
+# 부하 직원이 없는 말단 직원
+leaf_workers_count = 2**height
+leaf_workers = [deque() for _ in range(leaf_workers_count)]
+for i in range(leaf_workers_count):
+    leaf_workers[i].extend(list(map(int, sys.stdin.readline().split())))
+
+
+# 업무 시작
+now_day = 1
+ending_work = 0
+while now_day <= working_day:
+    # 맨 위 상사부터 일을 처리한다
+    for i in range(1, lead_workers_count+1):
+        # 짝수 번째 날짜에는 오른쪽 직원이 올린 업무 처리
+        now_day_part = 1 if now_day % 2 == 0 else 0
+
+        # 큐에 처리할 일이 있다면 처리하기
+        if lead_workers[i][now_day_part]:
+            leader_work = lead_workers[i][now_day_part].popleft()
+            
+            # 부서장이 처리한 일은 최종 완료
+            if i == 1:
+                ending_work += leader_work
+            # 부서장이 아니면 상사에게 보낸다
+            else:
+                leader = i // 2
+                position = 0 if i % 2 == 0 else 1
+                lead_workers[leader][position].append(leader_work)
+    
+
+    # 말단 직원이 일을 처리하여 상사에게 보낸다
+    for i in range(leaf_workers_count):
+        if leaf_workers[i]:
+            leaf_work = leaf_workers[i].popleft()
+
+            # 해당 말단 직원의 상사
+            leader = (i + lead_workers_count +1) // 2
+            position = 0 if (i + lead_workers_count +1) % 2 == 0 else 1
+            lead_workers[leader][position].append(leaf_work)
+
+
+    now_day += 1
+
+print(ending_work)
+
+```
+
+<br>
+
+출처 : <br>
+Softeer HSAT 5회 정기 코딩 인증평가 기출, 난이도 3 <br>
+https://softeer.ai/practice/info.do?idx=1&eid=1256
