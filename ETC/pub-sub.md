@@ -6,7 +6,9 @@
 <br>
 
 ## 💡 Pub/Sub vs Message queue
-<img width="402" alt="스크린샷 2022-11-06 오후 7 37 42" src="https://user-images.githubusercontent.com/70243735/200166043-db798cce-dcd5-4612-89f8-673d889d5fe7.png">
+
+<img width="502" alt="스크린샷 2022-11-06 오후 7 37 42" src="https://user-images.githubusercontent.com/70243735/200166043-db798cce-dcd5-4612-89f8-673d889d5fe7.png">
+
 
 &nbsp; : 메시지 큐는 하나의 메시지를 한명의 subscribe가 소비할 수 있다. subscriberA가 메시지1을 소비했다면, 이 메시지를 subscriberB가 또 소비할 수는 없다. 그럴러면 큐를 하나 더 만들어야한다.  <br>
 &nbsp; : 위의 Message Queue model의 그림은 고객이 3개의 제품을 구매한 이벤트가 발생했고, 이를 Inventory 알리는 큐와 Order에 알리는 큐, 총 두개가 필요하다. <br>
@@ -19,9 +21,11 @@
 
 &nbsp; : 이벤트 스트림에 모든 Subscriber가 필요하거나 필요하지 않은 데이터가 포함될 수 있기때문에 지정된 Subscriber가 수신하는 데이터를 제한해야할 경우가 자주있다. 이럴때 사용할 수 있는 기법이 이벤트 필터링과 이벤트 팬아웃이다.
 
-<img width="395" alt="스크린샷 2022-11-06 오후 7 39 00" src="https://user-images.githubusercontent.com/70243735/200166094-f60a446b-f748-46ae-9f74-504457a094fa.png">
 
-<img width="395" alt="스크린샷 2022-11-06 오후 7 39 21" src="https://user-images.githubusercontent.com/70243735/200166109-899e7ced-ec41-44cd-a2cc-daf9589d2893.png">
+<img width="495" alt="스크린샷 2022-11-06 오후 7 39 00" src="https://user-images.githubusercontent.com/70243735/200166094-f60a446b-f748-46ae-9f74-504457a094fa.png">
+
+<img width="495" alt="스크린샷 2022-11-06 오후 7 39 21" src="https://user-images.githubusercontent.com/70243735/200166109-899e7ced-ec41-44cd-a2cc-daf9589d2893.png">
+
 
 &nbsp; : Subscriber이 각 메시지를 읽고 적용 가능한지 확인하는 대신, 메시징 시스템의 필터링 논리가 메시지를 평가하고 다른 Subscriber가 접근하지 못하도록 제한한다. 이에 반해 이벤트 팬아웃 메커니즘은 해당 Subscriber 하위 집합에 관련된 topic에 따라 메시지를 다시 게시한다.
 
@@ -135,3 +139,4 @@
 [Pub/Sub: A Google-Scale Messaging Service](https://cloud.google.com/pubsub/architecture)
 <br>
 [Pub/Sub: Choose a subscription type](https://cloud.google.com/pubsub/docs/subscriber)
+
