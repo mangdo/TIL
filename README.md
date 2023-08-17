@@ -67,6 +67,7 @@
 ## 자료구조
 + [배열](./DataStructure/array.md)
 + [링크드 리스트](./DataStructure/list.md)
++ [이진트리](./DataStructure/binaryTree)
 
 <br>
 
